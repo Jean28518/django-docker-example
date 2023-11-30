@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Checklist</title>
+    {% comment %} Include picoCSS from cdn {% endcomment %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Checklist</h1>
+
+        <form action="" method="post">
+            {% comment %} {% csrf_token %}  {% endcomment %}
+
+            {{ form.as_p }}
+        
+            <input type="submit" value="Hinzufügen">
+        </form>
+
+        <h2>Alle Einträge</h2>
+
+        <ul>
+            {% for task in all_tasks %}
+                {% if task.done == False %}
+                    <li>
+                        <strong>{{ task.task_title }}</strong>
+                        <br>
+                        <small>{{ task.task_description }}</small>
+                        <a href="{% url "done" task.id %}" role="button">Erledigt</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+
+    </main>
+</body>
