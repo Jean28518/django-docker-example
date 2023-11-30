@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-@#09w7f0a+se#uh^pm%uc()_r%g@zzd8oann2#(9y%j)fe)h2a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "*",
+]
 
 
 # Application definition
@@ -78,7 +80,7 @@ WSGI_APPLICATION = 'demochecklist.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db/db.sqlite3',
     }
 }
 
